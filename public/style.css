@@ -60,6 +60,15 @@ body {
     transition: transform 150ms;
     background-color: rgb(164, 217, 234);
   } */
+/* Applied same style to the Next Q btn NK */
+#next-question-button {
+  padding: 1em;
+  border-radius: 300px;
+  margin: 2rem;
+  font-size: medium;
+  font-weight: bold;
+  background-color: #fcfef7;
+}
 
   .answer-btn{
     width: 400px;
@@ -96,5 +105,6 @@ ul {
 /* .classbtn {
   color: red;
 } */
+
 
 

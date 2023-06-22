@@ -9,10 +9,10 @@ export const createQuestionElement = (question) => {
   const element = document.createElement('div');
 
   // I use String.raw just to get fancy colors for the HTML in VS Code.
+  // Added class=classbtn to it for CSS purposes NK
   element.innerHTML = String.raw`
     <h1>${question}</h1>
-
-    <ul id="${ANSWERS_LIST_ID}">
+    <ul id="${ANSWERS_LIST_ID}" class="classbtn"> 
     </ul>
 
     <button id="${NEXT_QUESTION_BUTTON_ID}">
