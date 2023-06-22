@@ -22,3 +22,26 @@ export const createQuestionElement = (question) => {
 
   return element;
 };
+
+
+//update from diaa
+
+
+// questionView.js
+// const createQuestionElement = (question) => {
+//   const element = document.createElement('div');
+//   element.innerHTML = `
+//     <h1>${question}</h1>
+//     <ul id="${ANSWERS_LIST_ID}">
+//     </ul>
+//     <button id="${NEXT_QUESTION_BUTTON_ID}">
+//       Next question
+//     </button>
+//     <div id="${PROGRESS_BAR_ID}"></div>
+//     <div id="${SCORE_COUNTER_ID}">
+//       Score: <span id="score-number">0</span>
+//       <img id="answer-indicator" src="" alt="">
+//     </div>
+//   `;
+//   return element;
+// };

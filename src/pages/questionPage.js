@@ -7,7 +7,6 @@ import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
 
-
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
@@ -64,3 +63,59 @@ export const nextQuestion = () => {
 
 
 //in this codes i tried to set up event listener for the answer options and the next question button... this codes are updating the selected answer add class for the correct and wrong answers and provides functionality to move for the next question 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//update from diaa
+
+
+// const initQuestionPage = () => {
+//   const userInterface = document.getElementById(USER_INTERFACE_ID);
+//   userInterface.innerHTML = '';
+
+//   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+//   const questionElement = createQuestionElement(currentQuestion.text);
+
+//   userInterface.appendChild(questionElement);
+
+//   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+
+//   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
+//     const answerElement = createAnswerElement(key, answerText, quizData.currentQuestionIndex);
+//     answerElement.addEventListener('click', () => selectAnswer(key));
+//     answersListElement.appendChild(answerElement);
+//   }
+
+//   document.getElementById(NEXT_QUESTION_BUTTON_ID).addEventListener('click', nextQuestion);
+
+//   updateProgressBar();
+//   updateScoreCounter();
+// };
+
+// const selectAnswer = (selectedAnswer) => {
+//   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+//   currentQuestion.selected = selectedAnswer;
+//   updateScoreCounter();
+// };
+
+// const nextQuestion = () => {
+//   quizData.currentQuestionIndex++;
+//   updateScoreCounter();
+//   if (quizData.currentQuestionIndex < quizData.questions.length) {
+//     initQuestionPage();
+//   } else {
+//     showResultPage();
+//   }
+// };
+
