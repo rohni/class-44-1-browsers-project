@@ -6,10 +6,13 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
+import { addTimer } from '../views/timerView.js';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
   userInterface.innerHTML = '';
+
+  const timerElement = addTimer(userInterface);
 
   const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
 
@@ -18,7 +21,6 @@ export const initQuestionPage = () => {
   userInterface.appendChild(questionElement);
   //Nk so here by document.getElementById(ANSWERS_LIST_ID) as we r assigning to the HTML id to the li as it assumes that we have defined the ANSWERS_LIST_ID const to hold the id value..
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-  button.classList.add(`answer-btn`);
 
   //1- the for of loop is used to iterate through each answer option(currentQuestion.answers) object--->(i created btn for that in the in the answerView page const button = document.createElement('button');
   //now we are having object.entries() method (data.js page )is used to convert the object into array of key value pairs
@@ -28,7 +30,8 @@ export const initQuestionPage = () => {
     //2- inside the loop we create this function createAnswerElement()has 2 parameter based on key and answerText which similarly li in the HTML
     const answerElement = createAnswerElement(key, answerText);
     //3- I added to the answerElement addEventListener method which is listen for the click event on the answerElement so the answer element is CLICKED the call back function is executed.
-    answerElement.addEventListener('click', () => {
+    answerElement.addEventListener('click', (event) => {
+      console.log('Firing ', event.target);
       //4-inside the callback function currentQuestion.selected property is updated with the selected answer options's key and this enable us to keep tracking of the user's selected answer for the question
       currentQuestion.selected = key;
       //5-now i should add the condition for the answer options correct or wrong if selected answer is correct
@@ -49,9 +52,9 @@ export const initQuestionPage = () => {
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
   //8- the other listner calls the startTimer function when the button clicked this function is responsible to start the timer for the quiz
-  document
-    .getElementById(NEXT_QUESTION_BUTTON_ID)
-    .addEventListener('click', startTimer);
+  // document
+  //   .getElementById(NEXT_QUESTION_BUTTON_ID)
+  //   .addEventListener('click', startTimer);
 };
 //9-and finally nextQuestion function is defined by increasing incremental the currentQuestionIndex to be moved to the next question and call initQuestionPage function to initailize the page with new question 
 
