@@ -19,47 +19,48 @@ export const initQuestionPage = () => {
   userInterface.appendChild(questionElement);
   //Nk so here by document.getElementById(ANSWERS_LIST_ID) as we r assigning to the HTML id to the li as it assumes that we have defined the ANSWERS_LIST_ID const to hold the id value..
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
+  button.classList.add(`answer-btn`);
 
-  //1-for of loop is iterates over the entries (key and answertext) over the answers objects they r in the data.js file It goes through each answer option one by one.
-  //2- inside the loop we are having 2 variable to stor the key value of the cureent answer options one by one 
-  //3- now the function createAnswerElement created to create an answer element based on the key and answertext which r the parameters to the function 
-  //4- this function as if we are creating in the HTML li with the answer inside.
-  //5- finally the answerElement is from createAnswerElement ()function which will add the list of the answer li html:P to add we should have appendChild to the answersListElement ..
-  // by looping we can create the answer elements for a given question displaying them as a list of options. NK
-  
+  //1- the for of loop is used to iterate through each answer option(currentQuestion.answers) object--->(i created btn for that in the in the answerView page const button = document.createElement('button');
+  //now we are having object.entries() method (data.js page )is used to convert the object into array of key value pairs
+  //each key represent == answer options's index
+  //and each value represent == answer text
   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
+    //2- inside the loop we create this function createAnswerElement()has 2 parameter based on key and answerText which similarly li in the HTML
     const answerElement = createAnswerElement(key, answerText);
+    //3- I added to the answerElement addEventListener method which is listen for the click event on the answerElement so the answer element is CLICKED the call back function is executed.
+    answerElement.addEventListener('click', () => {
+      //4-inside the callback function currentQuestion.selected property is updated with the selected answer options's key and this enable us to keep tracking of the user's selected answer for the question
+      currentQuestion.selected = key;
+      //5-now i should add the condition for the answer options correct or wrong if selected answer is correct
+      if (currentQuestion.selected === currentQuestion.correct) {
+        //if it is correct the correct class added to the answerElement by using classList.add method
+        answerElement.classList.add('correct');
+        //now else if its wrong the wrong class is added
+      } else {
+        answerElement.classList.add('wrong')
+      }
+    });
+    //6-and finally i need to create like ul in the HTML which is appendChild in JS that hilds allthe answer options for the current question 
     answersListElement.appendChild(answerElement);
   }
-  // if (quizData.currentQuestionIndex === quizData.questions.length - 1) {
-  //   const resultButton = document.getElementById(NEXT_QUESTION_BUTTON_ID);
-  //   resultButton.textContent = 'View Results';
-  //   resultButton.id = 'show-results-button';
-  //   document
-  //     .getElementById('show-results-button')
-  //     .addEventListener('click', CountScoreAndShowResults);
-  // } else {
-  //   document
-  //     .getElementById(NEXT_QUESTION_BUTTON_ID)
-  //     .addEventListener('click', nextQuestion);
-  // }
 
-
-
-
-
-
-
-
-
-
+  //7- i added 2 eventListener to the next question button element (NEXT_QUESTION_BUTTON_ID) one calls the nextQuestion function when the button is clicked  and update the currentQuestionIndex to be moved for the next question and re initailze the question page 
   document
     .getElementById(NEXT_QUESTION_BUTTON_ID)
     .addEventListener('click', nextQuestion);
+  //8- the other listner calls the startTimer function when the button clicked this function is responsible to start the timer for the quiz
+  document
+    .getElementById(NEXT_QUESTION_BUTTON_ID)
+    .addEventListener('click', startTimer);
 };
+//9-and finally nextQuestion function is defined by increasing incremental the currentQuestionIndex to be moved to the next question and call initQuestionPage function to initailize the page with new question 
 
-const nextQuestion = () => {
+export const nextQuestion = () => {
   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
 
   initQuestionPage();
 };
+
+
+//in this codes i tried to set up event listener for the answer options and the next question button... this codes are updating the selected answer add class for the correct and wrong answers and provides functionality to move for the next question 
