@@ -6,7 +6,6 @@ import {
 import { createQuestionElement } from '../views/questionView.js';
 import { createAnswerElement } from '../views/answerView.js';
 import { quizData } from '../data.js';
-import { doc } from 'prettier';
 
 export const initQuestionPage = () => {
   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -119,3 +118,4 @@ export const nextQuestion = () => {
 //     showResultPage();
 //   }
 // };
+
