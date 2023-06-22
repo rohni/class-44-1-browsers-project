@@ -145,4 +145,6 @@ export const quizData = {
       selected: null,
     },
   ],
+  //.s
+score : 0,
 };
