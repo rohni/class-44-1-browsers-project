@@ -52,7 +52,7 @@ const updateTimerDisplay = (secondsLeft, ) => {
 }
 
 
-// let timerEl = document.getElementById('timeLEft');
+// let timerEl = document.getElementById('timeLeft');
 // let sec = 30;
 
 // function countdown() {
@@ -62,5 +62,11 @@ const updateTimerDisplay = (secondsLeft, ) => {
 //         timerEl.innerHTML = `00: 0${sec}`
 //     }
 // }
+// const timerElement = document.createElement('div');
+//         timerElement.setAttribute('id', TIMER_ID);                                                                                                                                                                                                                                                                                               
+
+// const paragraphEl = document.createElement('p');
+// paragraphEl.textContent = '00 : 30';
+// paragraphEl.setAttribute()
 
 
