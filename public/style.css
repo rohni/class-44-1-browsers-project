@@ -16,16 +16,18 @@
 ul {
   list-style: none;
 }
-li.correct-answer {
-  color: green;
+/* Styles for wrong answer */
+.answer-container.wrong-answer {
+  background-color: #FFBABA; 
 }
 
-li.wrong-answer {
-  color: red;
+/* Styles for correct answer */
+.answer-container.correct-answer {
+  background-color: #C3E6CB; 
 }
 
 .answerContainer {
-  background-color: pink;
+  /*background-color: pink; */
   display: flex;
   align-items: center;
   margin-bottom: 10px;
