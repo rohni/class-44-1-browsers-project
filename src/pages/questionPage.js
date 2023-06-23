@@ -40,7 +40,7 @@
 //         answerElement.classList.add('wrong')
 //       }
 //     //});
-//     //6-and finally i need to create like ul in the HTML which is appendChild in JS that hilds allthe answer options for the current question 
+//     //6-and finally i need to create like ul in the HTML which is appendChild in JS that hilds allthe answer options for the current question
 //     answersListElement.appendChild(answerElement);
 //   }
 
@@ -59,18 +59,18 @@
 
 // //     const updateScore = () => {
 // //       let score = 0;
-    
+
 // //       for (const question of quizData.questions) {
 // //         if (question.selected === question.correct) {
 // //           score += 5;
 // //         }
 // //       }
-    
+
 // //       quizData.score = score;
 // //     };*/
-    
+
 // // =======
-// //   //7- i added 2 eventListener to the next question button element (NEXT_QUESTION_BUTTON_ID) one calls the nextQuestion function when the button is clicked  and update the currentQuestionIndex to be moved for the next question and re initailze the question page 
+// //   //7- i added 2 eventListener to the next question button element (NEXT_QUESTION_BUTTON_ID) one calls the nextQuestion function when the button is clicked  and update the currentQuestionIndex to be moved for the next question and re initailze the question page
 // //   document
 // //     .getElementById(NEXT_QUESTION_BUTTON_ID)
 // //     .addEventListener('click', nextQuestion);
@@ -80,13 +80,9 @@
 // //     .addEventListener('click', startTimer);
 // // >>>>>>> main
 // };
-//9-and finally nextQuestion function is defined by increasing incremental the currentQuestionIndex to be moved to the next question and call initQuestionPage function to initailize the page with new question 
+//9-and finally nextQuestion function is defined by increasing incremental the currentQuestionIndex to be moved to the next question and call initQuestionPage function to initailize the page with new question
 
 // <<<<<<< Quiz-Sabina
-
-
-
-
 
 // const nextQuestion = () => {
 //   quizData.currentQuestionIndex++;
@@ -135,23 +131,9 @@
 // <<<<<<< Quiz-Sabina
 // =======
 
-// //in this codes i tried to set up event listener for the answer options and the next question button... this codes are updating the selected answer add class for the correct and wrong answers and provides functionality to move for the next question 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// //in this codes i tried to set up event listener for the answer options and the next question button... this codes are updating the selected answer add class for the correct and wrong answers and provides functionality to move for the next question
 
 // //update from diaa
-
 
 // // const initQuestionPage = () => {
 // //   const userInterface = document.getElementById(USER_INTERFACE_ID);
@@ -191,4 +173,3 @@
 // //     showResultPage();
 // //   }
 // // };
-

@@ -11,8 +11,6 @@
 //   updateScoreCounter();
 // };
 
-
-
 // export const createResultPageElement = () => {
 //   const element = document.createElement('div');
 //   element.innerHTML = `

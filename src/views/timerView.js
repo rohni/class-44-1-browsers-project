@@ -1,4 +1,3 @@
-
 // let timerEl = document.getElementById('timeLEft');
 // let sec = 30;
 
@@ -9,5 +8,3 @@
 //         timerEl.innerHTML = `00: 0${sec}`
 //     }
 // }
-
-
