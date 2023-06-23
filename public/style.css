@@ -1,46 +1,8 @@
 
-.centered {
-
-  
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-
-
 
 
 ul {
   list-style: none;
-}
-/* Styles for wrong answer */
-.answer-container.wrong-answer {
-  background-color: #FFBABA; 
+  color: black;
 }
 
-/* Styles for correct answer */
-.answer-container.correct-answer {
-  background-color: #C3E6CB; 
-}
-
-.answerContainer {
-  /*background-color: pink; */
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-input[type='radio'] {
-  margin-right: 10px;
-}
-
-p {
-  margin: 90px 0;
-}
-
-button {
-  margin-top: 20px;
-}

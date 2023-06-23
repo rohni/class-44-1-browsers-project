@@ -10,3 +10,4 @@ const loadApp = () => {
 window.addEventListener('load', loadApp);
 
 //test from Sabina 
+console.log('loadApp');
