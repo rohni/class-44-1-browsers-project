@@ -18,7 +18,7 @@ export const initQuestionPage = () => {
   userInterface.appendChild(questionElement);
   //Nk so here by document.getElementById(ANSWERS_LIST_ID) as we r assigning to the HTML id to the li as it assumes that we have defined the ANSWERS_LIST_ID const to hold the id value..
   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
-  button.classList.add(`answer-btn`);
+  // button.classList.add(`answer-btn`); the console says about this line so i commented out it works
 
   //1- the for of loop is used to iterate through each answer option(currentQuestion.answers) object--->(i created btn for that in the in the answerView page const button = document.createElement('button');
   //now we are having object.entries() method (data.js page )is used to convert the object into array of key value pairs
