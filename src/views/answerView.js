@@ -1,6 +1,6 @@
-import { quizData } from '../data.js';
-import {USER_INTERFACE_ID} from '../constants.js'
-const userInterface = document.getElementById(USER_INTERFACE_ID);
+// import { quizData } from '../data.js';
+// import {USER_INTERFACE_ID} from '../constants.js'
+// const userInterface = document.getElementById(USER_INTERFACE_ID);
 
 /**
  * Create an Answer element
