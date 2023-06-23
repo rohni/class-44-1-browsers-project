@@ -9,5 +9,4 @@
 
 // window.addEventListener('load', loadApp);
 
-
 //console.log('loadApp');

@@ -23,9 +23,6 @@
 // userInterface.appendChild(scoreElement);
 // }
 
-
-
-
 // export const createAnswerElement = (key, answerText, isCorrect) => {
 //   const answerContainer = document.createElement('div');
 //   answerContainer.className = 'answerContainer';
@@ -47,37 +44,30 @@
 //     answerContainer.classList.add('wrong-answer');
 //   }
 
-  
-
-     
-
 //     const updateScore = () => {
 //       let score = 0;
-    
+
 //       for (const question of quizData.questions) {
 //         if (question.selected === question.correct) {
 //           score += 5;
 //         }
 //       }
-    
+
 //       quizData.score = score;
 //     };
- 
-  
-  
 
 //   radioButton.addEventListener('change', () => {
-    
+
 //     quizData.questions[quizData.currentQuestionIndex].selected = key;
-    
+
 //     updateScore();
-   
+
 //   });
 
 //   return answerContainer;
 // =======
 // export const createAnswerElement = (key, answerText) => {
-//   // const element = document.createElement('li'); 
+//   // const element = document.createElement('li');
 //   //it was already there no need for li now we created options btn to choose the correct answer NK
 //   const button = document.createElement('button');
 //   button.classList.add(`answer-btn`);
@@ -87,7 +77,3 @@
 //   `;
 //   return button;
 // >>>>>>> main
-
-
-
-

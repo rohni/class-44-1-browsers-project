@@ -1,6 +1,5 @@
 //update from diaa
 
-
 // Create progress bar element
 // export const createProgressBar = () => {
 //   const element = document.createElement('div');

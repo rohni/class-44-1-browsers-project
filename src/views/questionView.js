@@ -12,7 +12,7 @@
 //   // Added class=classbtn to it for CSS purposes NK
 //   element.innerHTML = String.raw`
 //     <h1>${question}</h1>
-//     <ul id="${ANSWERS_LIST_ID}" class="classbtn"> 
+//     <ul id="${ANSWERS_LIST_ID}" class="classbtn">
 //     </ul>
 
 //     <button id="${NEXT_QUESTION_BUTTON_ID}">
@@ -23,9 +23,7 @@
 //   return element;
 // };
 
-
 //update from diaa
-
 
 // questionView.js
 // const createQuestionElement = (question) => {

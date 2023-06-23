@@ -23,7 +23,7 @@
 //       },
 //       correct: 'b',
 //       selected: null,
-      
+
 //     },
 //     {
 //       text: 'Which planet is known for its beautiful rings',
@@ -35,7 +35,7 @@
 //       },
 //       correct: 'd',
 //       selected: null,
-      
+
 //     },
 //     {
 //       text: 'Which is the largest ocean on Earth?',
@@ -49,7 +49,7 @@
 //       selected: null,
 //     },
 
-//     { 
+//     {
 //     text: 'Which book made Stephen Hawking famous?',
 //     answers: {
 //       a: 'A Brief History of Time',
@@ -71,8 +71,7 @@
 //     correct: 'a',
 //     selected: null,
 //   },
-    
-  
+
 //     {
 //       text: 'What is the term for a cat with different-colored eyes?',
 //       answers: {
@@ -83,9 +82,9 @@
 //       },
 //       correct: 'd',
 //       selected: null,
-      
+
 //     },
-  
+
 //     {
 //       text: ' Which makeup product is used to create a more voluminous appearance for the lips?',
 //       answers: {
@@ -96,7 +95,7 @@
 //       },
 //       correct: 'd',
 //       selected: null,
-      
+
 //     },
 //     {
 //       text: ' Which herb is a key ingredient in pesto sauce?',
@@ -108,7 +107,7 @@
 //       },
 //       correct: 'b',
 //       selected: null,
-      
+
 //     },
 //     {
 //       text: 'Which country did Albert Einstein originate from?',
@@ -120,7 +119,7 @@
 //       },
 //       correct: 'a',
 //       selected: null,
-      
+
 //     },
 //     {
 //       text: 'What is the largest species of penguin?',
