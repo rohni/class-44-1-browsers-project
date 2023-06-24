@@ -6,7 +6,7 @@ Create the welcome screen
 const createWelcomeElement = () => {
   const element = document.createElement('div');
   element.innerHTML = `
-   <h1 id="welcome" class="classbtn">Welcome To IQ Quiz</h1>
+   <h1 id="welcome" class="classbtn">Welcome To The IQ Quiz</h1>
    <button id="${START_QUIZ_BUTTON_ID}" class="classbtn">start quiz</button>
   `;
   return element;

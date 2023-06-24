@@ -1,55 +1,179 @@
-/* ul {
-  list-style: none;
-  color: black;
 
-} */
+/*  imported google font for the entire quiz */
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
 
-body {
-  font-family: Arial, sans-serif;
+/*  added background color for the entire quiz */
+:root{
+  background-color: rgb(29, 26, 26);
 }
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 62.50;
+  font-family: 'Nova Square', cursive;
+}
+
+/*  styled welcome to the the IQ Quiz */
+ h1 {
+  font-size: 5.4rem;
+  color: #fff;
+  margin: 3rem;
+}
+
+/* styled the paragraph elements */
+p {
+  color: #fff;
+  margin: 1rem;
+}
+
+/*  styled the start quiz btn */
+#start-quiz-button {
+  font-size: 2.4rem;
+  padding: 2rem 0;
+  width: 30rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: rgb(20, 26, 26);
+  background: linear-gradient rgb(158, 209, 237);
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(0.3, 0.3, 0.3, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+/*  styled the hover effect */
+#start-quiz-button:hover {
+  cursor: pointer;
+  background-color: rgb(174, 244, 153);
+  transform: translateY(-1px);
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+  color: black;
+  font-weight: bold;
+  
+}
+
+
+
 
 #welcome-page {
   text-align: center;
   margin-top: 100px;
+  
 }
-
+/*  styled the questions and the options */
 .question-page {
   text-align: center;
   margin-top: 100px;
+  color: #fff;
+  margin: 5rem;
 }
 
+/*  styled progress bar */
 .progress-bar {
-  width: 0%;
+   width: 0%;
   height: 10px;
-  background-color: #ccc;
+  background-color: #796161;
   margin-bottom: 20px;
+  border: 1px solid rgb(12, 223, 72);
+  opacity: 0.9;
+  font-weight: bold; 
 }
 
+/*Countdown Timer*/
+
+h3 {
+  position: fixed;
+  top: 5%;
+  transform: translate(0%, -50%);
+  justify-content: center;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: #fff;
+  text-shadow: initial;
+}
 #question {
   font-size: 24px;
   margin-bottom: 20px;
 }
 
-.options {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.options button {
+/* .options { */
+  /* width: 500px;
+  padding: 1em;
+  border: 1px solid rgb(94, 92, 92);
+  border-radius: 500px;
+  font-size: medium;
+  font-weight: bold;
   margin-bottom: 10px;
-  padding: 10px 20px;
-  font-size: 16px;
+  transition: transform 0.2s ease-in-out 0s;
+  background-color: rgba(228, 224, 224, 0.85); */
+
+
+
+/* #options {
+  /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 100vh;
+    height: 65vh;
+    border: 1px solid rgba(212, 244, 244, 0.7);
+    box-shadow: 3px 0px 2px rgb(76, 163, 245),
+      -0.6em -0.2em .4em rgb(76, 163, 245);
+    background: black;
+    opacity: 0.9; */
+*/
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+  }
+
+.option:hover {
+  cursor: pointer;
+  background-color: rgb(174, 244, 153);
+
+
+  }
+
+  input {
+    display: none;
+  }
+
+
+
+
+/*  styled next btn */
+#next-button {
+  font-size: 2.4rem;
+  padding: 1rem 0;
+  width: 10rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: rgb(20, 26, 26);
+  background: linear-gradient rgb(158, 209, 237);
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px rgba(0.3, 0.3, 0.3, 0.3);
+  transition: all 0.3s ease-in-out;
 }
 
-#next-button {
-  padding: 10px 20px;
-  font-size: 16px;
-}
+#next-button:hover{
+ cursor: pointer;
+ background-color: rgb(174, 244, 153);
+ transform: translateY(-1px);
+ box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+ color: black;
+ font-weight: bold;
+ }
+
 
 .end-page {
   text-align: center;
   margin-top: 100px;
+  
 }
 
 #score {
@@ -64,15 +188,41 @@ body {
 }
 
 #restart-button {
-  padding: 10px 20px;
-  font-size: 16px;
-}
+      font-size: 2.4rem;
+      padding: 1rem 0;
+      width: 10rem;
+      text-align: center;
+      margin-bottom: 1rem;
+      color: rgb(20, 26, 26);
+      background: linear-gradient rgb(158, 209, 237);
+      border-radius: 20px;
+      box-shadow: 2px 2px 5px rgba(0.3, 0.3, 0.3, 0.3);
+      transition: all 0.3s ease-in-out;
+    }
+  
+ #restart-button:hover {
+      cursor: pointer;
+      background-color: rgb(174, 244, 153);
+      transform: translateY(-1px);
+      box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+      color: black;
+      font-weight: bold;
+    }
 
 
+/* styled correct and wrong answer */
 .correct-answer {
-  background-color: #9dff9d; /* Green color for correct answer */
+  
+  background-color: #15c486;
+  color: #fcfef7;
 }
 
 .wrong-answer {
-  background-color: #ff9d9d; /* Red color for wrong answer */
+  background-color: #ea2a2a;
+  color: #fcfef7
+}
+
+.answer-btn:hover {
+  box-shadow: 0px 0px 7px black;
+  transform: scale(1.2);
 }
