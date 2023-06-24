@@ -3,3 +3,76 @@
   color: black;
 
 } */
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+#welcome-page {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.question-page {
+  text-align: center;
+  margin-top: 100px;
+}
+
+.progress-bar {
+  width: 0%;
+  height: 10px;
+  background-color: #ccc;
+  margin-bottom: 20px;
+}
+
+#question {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.options button {
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+#next-button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+.end-page {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#score {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+#result-message {
+  font-size: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+#restart-button {
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+
+.correct-answer {
+  background-color: #9dff9d; /* Green color for correct answer */
+}
+
+.wrong-answer {
+  background-color: #ff9d9d; /* Red color for wrong answer */
+}

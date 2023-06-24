@@ -1,3 +1,112 @@
+import { initResultPage } from './resultPage.js';
+import { initWelcomePage } from './welcomePage.js';
+import { quizData } from '../data.js';
+
+export const initQuestionPage = (userInterface) => {
+  const { questions } = quizData;
+
+  const updateQuestionPage = () => {
+    const { currentQuestionIndex, questions } = quizData;
+
+    const question = questions[currentQuestionIndex] || {
+      text: 'Congratulations, you have completed the quiz. Click next to see your score and feedback',
+    };
+
+    const questionPageHTML = `
+      <div class="question-page">
+        <div class="progress-bar"></div>
+        <div id="question">${question.text}</div>
+        <div id="options">
+          ${generateOptionsHTML(question)}
+        </div>
+        <button id="next-button">${currentQuestionIndex < questions.length ? 'Next' : 'Finish'}</button>
+      </div>
+    `;
+
+    userInterface.innerHTML = questionPageHTML;
+
+    const optionsElement = document.getElementById('options');
+    const nextButton = document.getElementById('next-button');
+    const progressBar = document.querySelector('.progress-bar');
+
+    if (progressBar) {
+      progressBar.style.width = `${((currentQuestionIndex + 1) / questions.length) * 100}%`;
+    }
+
+    if (optionsElement) {
+      optionsElement.addEventListener('change', handleOptionChange);
+    }
+
+    if (nextButton) {
+      nextButton.addEventListener('click', handleNextButtonClick);
+    }
+  };
+
+  const generateOptionsHTML = (question) => {
+    const { answers } = question;
+    let optionsHTML = '';
+
+    for (const optionKey in answers) {
+      optionsHTML += `
+        <label class="option">
+          <input type="radio" name="answer" value="${optionKey}">
+          ${answers[optionKey]}
+          <img class="answer-indicator" src="" alt="">
+        </label>
+      `;
+    }
+
+    return optionsHTML;
+  };
+
+  const handleOptionChange = (event) => {
+    const selectedOption = event.target.value;
+    const { currentQuestionIndex } = quizData;
+
+    quizData.questions[currentQuestionIndex].selected = selectedOption;
+  };
+
+  const handleNextButtonClick = () => {
+    const { currentQuestionIndex, questions } = quizData;
+    const optionInputs = document.querySelectorAll('input[type="radio"]:checked');
+
+    optionInputs.forEach((input) => {
+      input.checked = false;
+    });
+
+    quizData.currentQuestionIndex++;
+
+    if (currentQuestionIndex < questions.length) {
+      updateQuestionPage();
+    } else {
+      initResultPage(
+        userInterface,
+        calculateScore(),
+        questions.length,
+        () => initWelcomePage(userInterface) // Navigate back to the welcome page
+      );
+    }
+  };
+
+  const calculateScore = () => {
+    let score = 0;
+    const { questions } = quizData;
+
+    questions.forEach((question) => {
+      if (question.selected === question.correct) {
+        score++;
+      }
+    });
+
+    return score;
+  };
+
+  updateQuestionPage();
+};
+
+// Call the function to initialize the question page
+initQuestionPage(document.getElementById('user-interface'));
+
 // <<<<<<< timer-attempt
 // import {
 //   ANSWERS_LIST_ID,
@@ -20,44 +129,44 @@
 //   const questionElement = createQuestionElement(currentQuestion.text);
 
 //   userInterface.appendChild(questionElement);
-//   //Nk so here by document.getElementById(ANSWERS_LIST_ID) as we r assigning to the HTML id to the li as it assumes that we have defined the ANSWERS_LIST_ID const to hold the id value..
+  //Nk so here by document.getElementById(ANSWERS_LIST_ID) as we r assigning to the HTML id to the li as it assumes that we have defined the ANSWERS_LIST_ID const to hold the id value..
 //   const answersListElement = document.getElementById(ANSWERS_LIST_ID);
 
-//   //1- the for of loop is used to iterate through each answer option(currentQuestion.answers) object--->(i created btn for that in the in the answerView page const button = document.createElement('button');
-//   //now we are having object.entries() method (data.js page )is used to convert the object into array of key value pairs
-//   //each key represent == answer options's index
-//   //and each value represent == answer text
+  //1- the for of loop is used to iterate through each answer option(currentQuestion.answers) object--->(i created btn for that in the in the answerView page const button = document.createElement('button');
+  //now we are having object.entries() method (data.js page )is used to convert the object into array of key value pairs
+  //each key represent == answer options's index
+  //and each value represent == answer text
 //   for (const [key, answerText] of Object.entries(currentQuestion.answers)) {
-//     //2- inside the loop we create this function createAnswerElement()has 2 parameter based on key and answerText which similarly li in the HTML
+    //2- inside the loop we create this function createAnswerElement()has 2 parameter based on key and answerText which similarly li in the HTML
 //     const answerElement = createAnswerElement(key, answerText);
-//     //3- I added to the answerElement addEventListener method which is listen for the click event on the answerElement so the answer element is CLICKED the call back function is executed.
+    //3- I added to the answerElement addEventListener method which is listen for the click event on the answerElement so the answer element is CLICKED the call back function is executed.
 //     answerElement.addEventListener('click', (event) => {
 //       console.log('Firing ', event.target);
-//       //4-inside the callback function currentQuestion.selected property is updated with the selected answer options's key and this enable us to keep tracking of the user's selected answer for the question
+      //4-inside the callback function currentQuestion.selected property is updated with the selected answer options's key and this enable us to keep tracking of the user's selected answer for the question
 //       currentQuestion.selected = key;
-//       //5-now i should add the condition for the answer options correct or wrong if selected answer is correct
+      //5-now i should add the condition for the answer options correct or wrong if selected answer is correct
 //       if (currentQuestion.selected === currentQuestion.correct) {
-//         //if it is correct the correct class added to the answerElement by using classList.add method
+        //if it is correct the correct class added to the answerElement by using classList.add method
 //         answerElement.classList.add('correct');
-//         //now else if its wrong the wrong class is added
+        //now else if its wrong the wrong class is added
 //       } else {
 //         answerElement.classList.add('wrong')
 //       }
 //     });
-//     //6-and finally i need to create like ul in the HTML which is appendChild in JS that hilds allthe answer options for the current question 
+    //6-and finally i need to create like ul in the HTML which is appendChild in JS that hilds allthe answer options for the current question
 //     answersListElement.appendChild(answerElement);
 //   }
 
-//   //7- i added 2 eventListener to the next question button element (NEXT_QUESTION_BUTTON_ID) one calls the nextQuestion function when the button is clicked  and update the currentQuestionIndex to be moved for the next question and re initailze the question page 
+  //7- i added 2 eventListener to the next question button element (NEXT_QUESTION_BUTTON_ID) one calls the nextQuestion function when the button is clicked  and update the currentQuestionIndex to be moved for the next question and re initailze the question page
 //   document
 //     .getElementById(NEXT_QUESTION_BUTTON_ID)
 //     .addEventListener('click', nextQuestion);
-//   //8- the other listner calls the startTimer function when the button clicked this function is responsible to start the timer for the quiz
-//   // document
-//   //   .getElementById(NEXT_QUESTION_BUTTON_ID)
-//   //   .addEventListener('click', startTimer);
+  //8- the other listner calls the startTimer function when the button clicked this function is responsible to start the timer for the quiz
+  // document
+  //   .getElementById(NEXT_QUESTION_BUTTON_ID)
+  //   .addEventListener('click', startTimer);
 // };
-// //9-and finally nextQuestion function is defined by increasing incremental the currentQuestionIndex to be moved to the next question and call initQuestionPage function to initailize the page with new question 
+//9-and finally nextQuestion function is defined by increasing incremental the currentQuestionIndex to be moved to the next question and call initQuestionPage function to initailize the page with new question
 
 // export const nextQuestion = () => {
 //   quizData.currentQuestionIndex = quizData.currentQuestionIndex + 1;
@@ -66,7 +175,7 @@
 // };
 
 
-// //in this codes i tried to set up event listener for the answer options and the next question button... this codes are updating the selected answer add class for the correct and wrong answers and provides functionality to move for the next question 
+//in this codes i tried to set up event listener for the answer options and the next question button... this codes are updating the selected answer add class for the correct and wrong answers and provides functionality to move for the next question
 
 
 

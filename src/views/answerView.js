@@ -1,3 +1,22 @@
+import { SCORE_COUNTER_ID } from '../constants.js';
+
+export const updateScoreCounter = (score) => {
+  const scoreCounter = document.getElementById(SCORE_COUNTER_ID);
+  scoreCounter.textContent = score;
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import { quizData } from '../data.js';
 // import {USER_INTERFACE_ID} from '../constants.js'
 // const userInterface = document.getElementById(USER_INTERFACE_ID);
