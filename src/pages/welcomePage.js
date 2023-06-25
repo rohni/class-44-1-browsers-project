@@ -1,3 +1,4 @@
+//Welcomepage
 
 import { initQuestionPage } from './questionPage.js';
 

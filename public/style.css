@@ -6,6 +6,7 @@
 
 body {
   font-family: Arial, sans-serif;
+ 
 }
 
 #welcome-page {
@@ -64,6 +65,7 @@ body {
 }
 
 #restart-button {
+  align-items: center;
   padding: 10px 20px;
   font-size: 16px;
 }
@@ -76,3 +78,17 @@ body {
 .wrong-answer {
   background-color: #ff9d9d; /* Red color for wrong answer */
 }
+
+
+ /* .option{
+  border: 1px solid red;
+} */
+
+/* .answer-indicator{
+  width: 100000000000000px;
+}
+
+
+#input{
+  width: 1000000000px;
+} */

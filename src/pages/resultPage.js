@@ -1,6 +1,8 @@
-// resultPage.js
 import { initWelcomePage } from './welcomePage.js';
+import { quizData } from '../data.js';
+import { updateScoreCounter } from '../views/scoreView.js';
 
+// const MAX_SCORE = 100;
 export function initResultPage(userInterface, score, totalQuestions, initQuestionPageCallback = null) {
   const resultPage = document.createElement('div');
   resultPage.className = 'end-page';
@@ -31,22 +33,19 @@ export function initResultPage(userInterface, score, totalQuestions, initQuestio
   }
   resultPage.appendChild(resultMessage);
 
-  // create a button element for the restart quiz option
-  const restartButton = document.createElement('button');
-  restartButton.id = 'restart-button';
-  restartButton.textContent = 'Restart Quiz';
+  // create a button element for  new try.
+  
 
-  if (initQuestionPageCallback) {
-    restartButton.addEventListener('click', () => {
-      initQuestionPageCallback();
-    });
-  } else {
-    restartButton.addEventListener('click', () => {
-      initWelcomePage(userInterface); // Navigate back to the welcome page
-    });
-  }
 
-  resultPage.appendChild(restartButton);
+  const tryAgain = document.createElement('button');
+  tryAgain.id = 'restart-button';
+  tryAgain.textContent = 'Try Again';
+
+  tryAgain.addEventListener('click', () => {
+  location.reload(); // Reload the page
+});
+
+document.body.appendChild(tryAgain);
 
   // clear the user interface and append the result page element
   if (userInterface) {
@@ -58,39 +57,5 @@ export function initResultPage(userInterface, score, totalQuestions, initQuestio
 }
 
 
-
-
-
-// export const showResultPage = () => {
-//   const userInterface = document.getElementById(USER_INTERFACE_ID);
-//   userInterface.innerHTML = '';
-
-//   const resultPageElement = createResultPageElement();
-//   userInterface.appendChild(resultPageElement);
-
-//   const restartButton = document.getElementById('restart-button');
-//   restartButton.addEventListener('click', restartQuiz);
-
-//   updateScoreCounter();
-// };
-
-// export const createResultPageElement = () => {
-//   const element = document.createElement('div');
-//   element.innerHTML = `
-//     <h1>Quiz Result</h1>
-//     <div id="${SCORE_COUNTER_ID}">
-//       Score: <span id="score-number">0</span>
-//       <img id="answer-indicator" src="" alt="">
-//     </div>
-//     <button id="restart-button">Restart Quiz</button>
-//   `;
-//   return element;
-// };
-
-// const restartQuiz = () => {
-//   quizData.currentQuestionIndex = 0;
-//   quizData.questions.forEach((question) => {
-//     question.selected = null;
-//   });
-//   initWelcomePage();
-// };
+// Call the function to initialize the result page
+// initResultPage(document.getElementById('user-interface'), 5, 10);

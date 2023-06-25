@@ -1,3 +1,6 @@
+//timer.js
+
+
 const timerEl = document.getElementById('timeLeft');
 const allowedTime = 30;
 let interval;

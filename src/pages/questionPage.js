@@ -1,10 +1,11 @@
-import { initResultPage } from './resultPage.js';
+//questionPage
+import { initResultPage  } from './resultPage.js';
 import { initWelcomePage } from './welcomePage.js';
 import { quizData } from '../data.js';
 import { timer } from '../views/timer.js';
+import { updateScoreCounter, createScoreCounter, } from '../views/scoreView.js';
 
 export const initQuestionPage = (userInterface) => {
-
   const { questions } = quizData;
 
   const updateQuestionPage = () => {
@@ -44,7 +45,10 @@ export const initQuestionPage = (userInterface) => {
     }
 
     timer();
-    
+
+    // Create and append the score counter element
+    const scoreCounter = createScoreCounter();
+    userInterface.appendChild(scoreCounter);
   };
 
   const generateOptionsHTML = (question) => {
@@ -69,6 +73,8 @@ export const initQuestionPage = (userInterface) => {
     const { currentQuestionIndex } = quizData;
 
     quizData.questions[currentQuestionIndex].selected = selectedOption;
+
+    updateScoreCounter();
   };
 
   const handleNextButtonClick = () => {
@@ -110,5 +116,4 @@ export const initQuestionPage = (userInterface) => {
 };
 
 // Call the function to initialize the question page
-// initQuestionPage(document.getElementById('user-interface'));
-
+initQuestionPage(document.getElementById('user-interface'));

@@ -1,5 +1,5 @@
-
 // progressBarView.js
+
 
 import { PROGRESS_BAR_ID } from '../constants.js';
 import { quizData } from '../data.js';

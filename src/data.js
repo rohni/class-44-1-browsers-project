@@ -1,3 +1,6 @@
+//data.js
+
+
 export const quizData = {
   currentQuestionIndex: 0,
   questions: [
@@ -100,7 +103,7 @@ export const quizData = {
       correct: 'a',
       selected: null,
     },
-    
+
     {
       text: 'Which animal can sleep for up to 20 hours a day?',
       answers: {

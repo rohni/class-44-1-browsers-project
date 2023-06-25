@@ -3,7 +3,7 @@
 import { SCORE_COUNTER_ID } from '../constants.js';
 import { quizData } from '../data.js';
 
-export const createScoreCounter = () => {
+export function createScoreCounter() {
   const element = document.createElement('div');
   element.id = SCORE_COUNTER_ID;
   element.innerHTML = `
@@ -11,10 +11,12 @@ export const createScoreCounter = () => {
     <img id="answer-indicator" src="" alt="">
   `;
   return element;
-};
+}
 
 export const updateScoreCounter = () => {
+  
   const scoreCounter = document.getElementById(SCORE_COUNTER_ID);
+  
   const scoreNumber = document.getElementById('score-number');
   const answerIndicator = document.getElementById('answer-indicator');
 
@@ -35,12 +37,11 @@ export const updateScoreCounter = () => {
   answerIndicator.src = ''; // Clear the image source first
 
   if (currentQuestion.selected === currentQuestion.correct) {
-    answerIndicator.src = './images/pngwing.com.png'; // Image for the right answer
+    answerIndicator.src = './public/images/correctanswer.jpg'; // Image for the right answer
     answerIndicator.alt = 'Right Answer';
   } else {
-    answerIndicator.src = './images/wrong-answer.png'; // Image for the wrong answer
+    answerIndicator.src = './public/images/wronganswer.png'; // Image for the wrong answer
     answerIndicator.alt = 'Wrong Answer';
   }
 };
 
-export default { createScoreCounter, updateScoreCounter };
