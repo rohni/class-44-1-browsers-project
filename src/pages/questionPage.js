@@ -1,10 +1,12 @@
+// questionPage.js
 import { initResultPage } from './resultPage.js';
 import { initWelcomePage } from './welcomePage.js';
 import { quizData } from '../data.js';
 import { timer } from '../views/timer.js';
+import { updateScoreCounter, createScoreCounter } from '../views/scoreView.js';
+import { createProgressBar, updateProgressBar } from '../views/progressBarView.js';
 
 export const initQuestionPage = (userInterface) => {
-
   const { questions } = quizData;
 
   const updateQuestionPage = () => {
@@ -16,7 +18,7 @@ export const initQuestionPage = (userInterface) => {
 
     const questionPageHTML = `
       <div class="question-page">
-        <div class="progress-bar"></div>
+        ${createProgressBar()} <!-- Updated here -->
         <div id="question">${question.text}</div>
         <div id="options">
           ${generateOptionsHTML(question)}
@@ -29,11 +31,6 @@ export const initQuestionPage = (userInterface) => {
 
     const optionsElement = document.getElementById('options');
     const nextButton = document.getElementById('next-button');
-    const progressBar = document.querySelector('.progress-bar');
-
-    if (progressBar) {
-      progressBar.style.width = `${((currentQuestionIndex + 1) / questions.length) * 100}%`;
-    }
 
     if (optionsElement) {
       optionsElement.addEventListener('change', handleOptionChange);
@@ -44,7 +41,13 @@ export const initQuestionPage = (userInterface) => {
     }
 
     timer();
-    
+
+    // Update the progress bar after rendering the question page
+    updateProgressBar(); // Updated here
+
+    // Create and append the score counter element
+    const scoreCounter = createScoreCounter();
+    userInterface.appendChild(scoreCounter);
   };
 
   const generateOptionsHTML = (question) => {
@@ -69,6 +72,8 @@ export const initQuestionPage = (userInterface) => {
     const { currentQuestionIndex } = quizData;
 
     quizData.questions[currentQuestionIndex].selected = selectedOption;
+
+    updateScoreCounter(calculateScore());
   };
 
   const handleNextButtonClick = () => {
@@ -110,5 +115,5 @@ export const initQuestionPage = (userInterface) => {
 };
 
 // Call the function to initialize the question page
-// initQuestionPage(document.getElementById('user-interface'));
+initQuestionPage(document.getElementById('user-interface'));
 

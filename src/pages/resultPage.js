@@ -1,21 +1,23 @@
 // resultPage.js
 import { initWelcomePage } from './welcomePage.js';
+import { quizData } from '../data.js';
+import { updateScoreCounter } from '../views/scoreView.js';
 
 export function initResultPage(userInterface, score, totalQuestions, initQuestionPageCallback = null) {
   const resultPage = document.createElement('div');
   resultPage.className = 'end-page';
 
-  // create a h1 element for the quiz result title
+  // Create an h1 element for the quiz result title
   const resultTitle = document.createElement('h1');
   resultTitle.textContent = 'Quiz Result';
   resultPage.appendChild(resultTitle);
 
-  // create a p element for the score display
+  // Create a p element for the score display
   const scoreDisplay = document.createElement('p');
   scoreDisplay.innerHTML = `Your Score: <span id="score">${score}</span> / ${totalQuestions}`;
   resultPage.appendChild(scoreDisplay);
 
-  // create a p element for the result message
+  // Create a p element for the result message
   const resultMessage = document.createElement('p');
   resultMessage.id = 'result-message';
 
@@ -31,24 +33,18 @@ export function initResultPage(userInterface, score, totalQuestions, initQuestio
   }
   resultPage.appendChild(resultMessage);
 
-  // create a button element for the restart quiz option
-  const restartButton = document.createElement('button');
-  restartButton.id = 'restart-button';
-  restartButton.textContent = 'Restart Quiz';
+  // Create a button element for a new try
+  const tryAgain = document.createElement('button');
+  tryAgain.id = 'restart-button';
+  tryAgain.textContent = 'Try Again';
 
-  if (initQuestionPageCallback) {
-    restartButton.addEventListener('click', () => {
-      initQuestionPageCallback();
-    });
-  } else {
-    restartButton.addEventListener('click', () => {
-      initWelcomePage(userInterface); // Navigate back to the welcome page
-    });
-  }
+  tryAgain.addEventListener('click', () => {
+    location.reload(); // Reload the page
+  });
 
-  resultPage.appendChild(restartButton);
+  document.body.appendChild(tryAgain);
 
-  // clear the user interface and append the result page element
+  // Clear the user interface and append the result page element
   if (userInterface) {
     userInterface.innerHTML = '';
     userInterface.appendChild(resultPage);
@@ -57,40 +53,6 @@ export function initResultPage(userInterface, score, totalQuestions, initQuestio
   }
 }
 
+// Call the function to initialize the result page
+// initResultPage(document.getElementById('user-interface'), 5, 10);
 
-
-
-
-// export const showResultPage = () => {
-//   const userInterface = document.getElementById(USER_INTERFACE_ID);
-//   userInterface.innerHTML = '';
-
-//   const resultPageElement = createResultPageElement();
-//   userInterface.appendChild(resultPageElement);
-
-//   const restartButton = document.getElementById('restart-button');
-//   restartButton.addEventListener('click', restartQuiz);
-
-//   updateScoreCounter();
-// };
-
-// export const createResultPageElement = () => {
-//   const element = document.createElement('div');
-//   element.innerHTML = `
-//     <h1>Quiz Result</h1>
-//     <div id="${SCORE_COUNTER_ID}">
-//       Score: <span id="score-number">0</span>
-//       <img id="answer-indicator" src="" alt="">
-//     </div>
-//     <button id="restart-button">Restart Quiz</button>
-//   `;
-//   return element;
-// };
-
-// const restartQuiz = () => {
-//   quizData.currentQuestionIndex = 0;
-//   quizData.questions.forEach((question) => {
-//     question.selected = null;
-//   });
-//   initWelcomePage();
-// };
