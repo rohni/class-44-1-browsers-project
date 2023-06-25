@@ -63,6 +63,7 @@ p {
   margin-top: 100px;
   color: #fff;
   margin: 5rem;
+  font-size: 25px;
 }
 
 /*  styled progress bar */
@@ -70,7 +71,8 @@ p {
    width: 0%;
   height: 10px;
   background-color: #796161;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
+  margin-top: 100px;
   border: 1px solid rgb(12, 223, 72);
   opacity: 0.9;
   font-weight: bold; 
@@ -79,6 +81,7 @@ p {
 /*Countdown Timer*/
 
 h3 {
+  
   position: fixed;
   top: 5%;
   transform: translate(0%, -50%);
@@ -89,38 +92,10 @@ h3 {
   text-shadow: initial;
 }
 #question {
-  font-size: 24px;
+  font-size: 30px;
   margin-bottom: 20px;
 }
 
-/* .options { */
-  /* width: 500px;
-  padding: 1em;
-  border: 1px solid rgb(94, 92, 92);
-  border-radius: 500px;
-  font-size: medium;
-  font-weight: bold;
-  margin-bottom: 10px;
-  transition: transform 0.2s ease-in-out 0s;
-  background-color: rgba(228, 224, 224, 0.85); */
-
-
-
-/* #options {
-  /* display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 100vh;
-    height: 65vh;
-    border: 1px solid rgba(212, 244, 244, 0.7);
-    box-shadow: 3px 0px 2px rgb(76, 163, 245),
-      -0.6em -0.2em .4em rgb(76, 163, 245);
-    background: black;
-    opacity: 0.9; */
-*/
 
 
 /* CSS for the score counter and the answer indicator */
@@ -158,6 +133,8 @@ h3 {
  
 .slide-in {
   animation: slide-in 1s ease-in-out;
+  width: 150px;
+  max-height: 100px;
 }
 
 @keyframes slide-in {
@@ -199,6 +176,7 @@ h3 {
   padding: 1rem 0;
   width: 10rem;
   text-align: center;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   color: rgb(20, 26, 26);
   background: linear-gradient rgb(158, 209, 237);
@@ -224,12 +202,13 @@ h3 {
 }
 
 #score {
-  font-size: 28px;
+  font-size: 250px;
+  color:  rgb(174, 244, 153);
   font-weight: bold;
 }
 
 #result-message {
-  font-size: 20px;
+  font-size: 26px;
   margin-top: 20px;
   margin-bottom: 30px;
 }
