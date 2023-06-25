@@ -1,98 +1,30 @@
+// answerView.js
 import { SCORE_COUNTER_ID } from '../constants.js';
+import { updateScoreCounter } from '../views/scoreView.js';
+import { quizData } from '../data.js';
 
-export const updateScoreCounter = (score) => {
-  const scoreCounter = document.getElementById(SCORE_COUNTER_ID);
-  scoreCounter.textContent = score;
+export const updateAnswerClass = (answerContainer, isCorrect) => {
+  answerContainer.classList.remove('correct', 'wrong');
+  if (isCorrect) {
+    answerContainer.classList.add('correct');
+    updateScoreCounter(calculateScore());
+  } else {
+    answerContainer.classList.add('wrong');
+  }
+};
+
+export const showNextQuestion = () => {
+  const answersList = document.getElementById(ANSWERS_LIST_ID);
+  answersList.innerHTML = '';
+
+  const currentQuestion = quizData.questions[quizData.currentQuestionIndex];
+  const questionElement = createQuestionElement(currentQuestion.text);
+  answersList.appendChild(questionElement);
+
+  for (const key in currentQuestion.answers) {
+    const answerElement = createAnswerElement(key, currentQuestion.answers[key]);
+    answersList.appendChild(answerElement);
+  }
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
-// import { quizData } from '../data.js';
-// import {USER_INTERFACE_ID} from '../constants.js'
-// const userInterface = document.getElementById(USER_INTERFACE_ID);
-
-/**
- * Create an Answer element
- * @returns {Element}
- */
-// <<<<<<< Quiz-Sabina
-// /*export const createAnswerElement = (key, answerText) => {
-//   const element = document.createElement('li');
-//   element.innerHTML = String.raw`
-//     ${key}: ${answerText};
-//   `;
-//   return element;
-// };*/
-
-// //.s element to display score
-
-// const createScoreElement = ()=>{
-//   const scoreElement = document.createElement('p');
-// scoreElement.textContent = `Score: ${quizData.score}`;
-// userInterface.appendChild(scoreElement);
-// }
-
-// export const createAnswerElement = (key, answerText, isCorrect) => {
-//   const answerContainer = document.createElement('div');
-//   answerContainer.className = 'answerContainer';
-
-//   const radioButton = document.createElement('input');
-//   radioButton.type = 'radio';
-//   radioButton.name = 'answerOption';
-//   radioButton.value = key;
-//   radioButton.id = key;
-//   answerContainer.appendChild(radioButton);
-
-//   const label = document.createElement('label');
-//   label.htmlFor = key;
-//   label.textContent = answerText;
-//   answerContainer.appendChild(label);
-//     if (isCorrect) {
-//     answerContainer.classList.add('correct-answer');
-//   } else {
-//     answerContainer.classList.add('wrong-answer');
-//   }
-
-//     const updateScore = () => {
-//       let score = 0;
-
-//       for (const question of quizData.questions) {
-//         if (question.selected === question.correct) {
-//           score += 5;
-//         }
-//       }
-
-//       quizData.score = score;
-//     };
-
-//   radioButton.addEventListener('change', () => {
-
-//     quizData.questions[quizData.currentQuestionIndex].selected = key;
-
-//     updateScore();
-
-//   });
-
-//   return answerContainer;
-// =======
-// export const createAnswerElement = (key, answerText) => {
-//   // const element = document.createElement('li');
-//   //it was already there no need for li now we created options btn to choose the correct answer NK
-//   const button = document.createElement('button');
-//   button.classList.add(`answer-btn`);
-
-//   button.innerHTML = String.raw`
-//     ${key}: ${answerText};
-//   `;
-//   return button;
-// >>>>>>> main
