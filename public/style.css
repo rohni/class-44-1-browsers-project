@@ -11,7 +11,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  
   font-size: 62.50;
   font-family: 'Nova Square', cursive;
 }
@@ -137,6 +136,8 @@ h3 {
  
 .slide-in {
   animation: slide-in 1s ease-in-out;
+  width: 150px;
+  max-height: 100px;
 }
 
 @keyframes slide-in {
